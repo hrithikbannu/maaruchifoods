@@ -45,6 +45,7 @@ nav a:hover {
 
 /* Hero Section with Parallax */
 .hero {
+  position: relative; /* Important */
   height:100vh;
   background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
              url('biryani.jpg') center/cover fixed no-repeat;
@@ -56,12 +57,16 @@ nav a:hover {
 }
 
 .hero h1 {
+  position: absolute;
+  top: 110px;              /* Adjust this value if needed */
+  left: 50%;
+  transform: translateX(-50%);
+  
   font-family:'Playfair Display', serif;
-  font-size:34px;        /* Bigger */
-  font-weight:700;       /* Bold */
-  letter-spacing:6px;
-  margin-top:80px;       /* Push down from navbar */
-  margin-bottom:10px;
+  font-size: 38px;         /* Bigger */
+  font-weight: 700;        /* Bold */
+  letter-spacing: 6px;
+  color: white;
 }
 
 .hero h2 {
