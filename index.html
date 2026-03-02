@@ -9,20 +9,20 @@
 
 <style>
 
-/* ---------------- GLOBAL ---------------- */
+/* ================= GLOBAL ================= */
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior:smooth; }
 
-body {
+body{
   margin:0;
   font-family:'Poppins', sans-serif;
   background:#111;
   color:white;
 }
 
-/* ---------------- NAVBAR ---------------- */
+/* ================= NAVBAR ================= */
 
-nav {
+nav{
   position:fixed;
   width:100%;
   top:0;
@@ -32,7 +32,7 @@ nav {
   z-index:1000;
 }
 
-nav a {
+nav a{
   color:#d4af37;
   margin:0 20px;
   text-decoration:none;
@@ -40,11 +40,11 @@ nav a {
   transition:0.3s;
 }
 
-nav a:hover { color:white; }
+nav a:hover{ color:white; }
 
-/* ---------------- CINEMATIC HERO ---------------- */
+/* ================= CINEMATIC HERO ================= */
 
-.hero {
+.hero{
   position:relative;
   height:100vh;
   display:flex;
@@ -55,8 +55,7 @@ nav a:hover { color:white; }
   overflow:hidden;
 }
 
-/* Background slides */
-.hero-slide {
+.hero-slide{
   position:absolute;
   inset:0;
   background-size:cover;
@@ -66,22 +65,19 @@ nav a:hover { color:white; }
   animation:fadeZoom 30s infinite;
 }
 
-/* Individual slides */
-.slide1 { background-image:url('biryani1.jpg'); animation-delay:0s; }
-.slide2 { background-image:url('biryani2.jpg'); animation-delay:10s; }
-.slide3 { background-image:url('biryani3.jpg'); animation-delay:20s; }
+.slide1{ background-image:url('biryani1.jpg'); animation-delay:0s; }
+.slide2{ background-image:url('biryani2.jpg'); animation-delay:10s; }
+.slide3{ background-image:url('biryani3.jpg'); animation-delay:20s; }
 
-/* Smooth fade + zoom */
-@keyframes fadeZoom {
-  0%   { opacity:0; transform:scale(1); }
-  5%   { opacity:1; }
-  30%  { opacity:1; transform:scale(1.08); }
-  35%  { opacity:0; }
-  100% { opacity:0; }
+@keyframes fadeZoom{
+  0%{opacity:0; transform:scale(1);}
+  5%{opacity:1;}
+  30%{opacity:1; transform:scale(1.08);}
+  35%{opacity:0;}
+  100%{opacity:0;}
 }
 
-/* Overlay */
-.hero::after {
+.hero::after{
   content:"";
   position:absolute;
   inset:0;
@@ -89,28 +85,27 @@ nav a:hover { color:white; }
   z-index:1;
 }
 
-/* Hero text */
 .hero h1,
 .hero h2,
-.hero .buttons {
+.hero .buttons{
   position:relative;
   z-index:2;
 }
 
-.hero h1 {
+.hero h1{
   font-family:'Playfair Display', serif;
   font-size:38px;
   letter-spacing:6px;
 }
 
-.hero h2 {
+.hero h2{
   font-family:'Playfair Display', serif;
   font-size:64px;
   margin:10px 0;
 }
 
 /* Buttons */
-.buttons a {
+.buttons a{
   display:inline-block;
   margin:10px;
   padding:12px 26px;
@@ -120,14 +115,14 @@ nav a:hover { color:white; }
   transition:0.3s;
 }
 
-.buttons a:hover {
+.buttons a:hover{
   background:#d4af37;
   color:black;
 }
 
-/* ---------------- SECTIONS ---------------- */
+/* ================= SECTIONS ================= */
 
-.section {
+.section{
   padding:100px 20px;
   text-align:center;
   opacity:0;
@@ -135,17 +130,17 @@ nav a:hover { color:white; }
   transition:1s ease;
 }
 
-.section.visible {
+.section.visible{
   opacity:1;
   transform:translateY(0);
 }
 
-.section h3 {
+.section h3{
   font-family:'Playfair Display', serif;
   font-size:32px;
 }
 
-.section h3::after {
+.section h3::after{
   content:"";
   display:block;
   width:80px;
@@ -154,15 +149,14 @@ nav a:hover { color:white; }
   background:#d4af37;
 }
 
-/* Grids */
-.food-grid, .insta-grid {
+.food-grid,.insta-grid{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
   gap:20px;
 }
 
-.food-grid img, .insta-grid img {
+.food-grid img,.insta-grid img{
   width:300px;
   height:200px;
   object-fit:cover;
@@ -171,49 +165,61 @@ nav a:hover { color:white; }
 }
 
 .food-grid img:hover,
-.insta-grid img:hover {
+.insta-grid img:hover{
   transform:scale(1.05);
 }
 
-/* WhatsApp */
-.whatsapp-float {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  font-size:26px;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  box-shadow:0 5px 15px rgba(0,0,0,0.4);
-  z-index:9999;
+iframe{
+  border-radius:10px;
+  margin-top:20px;
 }
 
-/* Popup */
-.popup {
+/* ================= POPUP ================= */
+
+.popup{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.85);
   align-items:center;
   justify-content:center;
   z-index:9999;
 }
 
-.popup-content {
+.popup-content{
   background:#111;
   padding:30px;
   border:1px solid #d4af37;
   text-align:center;
+  max-width:400px;
 }
 
-/* Footer */
-footer {
+.popup-content a{
+  display:inline-block;
+  margin-top:15px;
+  border:1px solid #d4af37;
+  color:#d4af37;
+  padding:10px 20px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.popup-content a:hover{
+  background:#d4af37;
+  color:black;
+}
+
+.popup-content button{
+  margin-top:15px;
+  background:none;
+  border:none;
+  color:#aaa;
+  cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
   background:black;
   padding:50px 20px;
   text-align:center;
@@ -244,14 +250,11 @@ footer {
 
   <div class="buttons">
     <a href="menu.html">View Menu</a>
-    <a href="YOUR_SWIGGY_LINK" target="_blank">Swiggy</a>
-    <a href="YOUR_ZOMATO_LINK" target="_blank">Zomato</a>
     <a href="https://wa.me/919100765900" target="_blank">WhatsApp Order</a>
   </div>
 </div>
 
-<!-- KEEPING ALL YOUR SECTIONS EXACTLY AS BEFORE -->
-
+<!-- KEEPING ALL YOUR SECTIONS -->
 <div class="section" id="special">
   <h3>Our Specialties</h3>
   <div class="food-grid">
@@ -280,10 +283,8 @@ footer {
 
 <div class="section" id="reviews">
   <h3>Customer Reviews</h3>
-  <iframe 
-    src="https://www.google.com/maps?q=Maa+Ruchi+Foods+Delhi&output=embed"
-    width="100%" height="350">
-  </iframe>
+  <iframe src="https://www.google.com/maps?q=Maa+Ruchi+Foods+Delhi&output=embed"
+          width="100%" height="350"></iframe>
 </div>
 
 <div class="section" id="contact">
@@ -296,9 +297,20 @@ footer {
 © 2026 Maa Ruchi Foods • Cloud Kitchen Delhi
 </footer>
 
-<a href="https://wa.me/919100765900" class="whatsapp-float" target="_blank">💬</a>
+<!-- POPUP ONLY ON INDEX -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3>Catering & Bulk Orders</h3>
+    <p>Planning an event? Let Maa Ruchi Foods handle your feast.</p>
+    <a href="https://wa.me/919100765900" target="_blank">Contact on WhatsApp</a>
+    <br>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
 
 <script>
+
+/* Scroll reveal */
 const sections=document.querySelectorAll('.section');
 window.addEventListener('scroll',()=>{
   const trigger=window.innerHeight*0.85;
@@ -308,6 +320,19 @@ window.addEventListener('scroll',()=>{
     }
   });
 });
+
+/* Show popup once per visitor */
+window.onload=function(){
+  if(!localStorage.getItem("cateringPopupShown")){
+    document.getElementById("popup").style.display="flex";
+    localStorage.setItem("cateringPopupShown","true");
+  }
+};
+
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
+
 </script>
 
 </body>
