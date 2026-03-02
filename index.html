@@ -1,82 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Maa Ruchi Foods | Delhi Cloud Kitchen</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maa Ruchi Foods | Hyderabadi Dum Biryani | Delhi</title>
 
 <style>
 body {
   margin:0;
   font-family: Arial, sans-serif;
-  background:#4E342E;
-  color:white;
+  background:#fff5eb;
+  color:#3e2723;
+}
+header {
+  background:#4e342e;
+  color:#fff;
+  padding:20px;
   text-align:center;
 }
-
-.header {
-  padding:30px 20px;
-}
-
 .logo {
-  width:120px;
+  width:100px;
+  border-radius:50%;
+  margin-bottom:10px;
 }
-
-h1 {
-  margin:10px 0;
-  font-size:32px;
+.hero {
+  background:#d4af37;
+  color:#3e2723;
+  padding:25px;
+  text-align:center;
 }
-
-.tagline {
-  font-size:18px;
-  margin-bottom:20px;
-}
-
-.button {
+.buttons a {
   display:inline-block;
-  background:#D4AF37;
-  color:black;
-  padding:12px 25px;
+  background:#4e342e;
+  color:white;
+  padding:12px 22px;
   margin:10px;
   text-decoration:none;
   border-radius:6px;
   font-weight:bold;
 }
-
 .section {
-  padding:30px 20px;
+  padding:35px 20px;
 }
-
-.footer {
-  background:#3E2723;
-  padding:15px;
-  font-size:14px;
+.photo-row {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+}
+.photo-row img {
+  width:280px;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+}
+footer {
+  background:#3e2723;
+  color:white;
+  text-align:center;
+  padding:20px;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="header">
-  <h1>MAA RUCHI FOODS</h1>
-  <div class="tagline">Authentic Hyderabadi Dum Biryani</div>
+<header>
+  <img src="logo.png" class="logo" alt="Maa Ruchi Foods Logo">
+  <h1>Maa Ruchi Foods</h1>
+  <p>Authentic Hyderabadi Dum Biryani • Cloud Kitchen Delhi</p>
+</header>
 
-  <a class="button" href="menu.html">View Full Menu</a>
-  <a class="button" href="https://wa.me/919100765900">Order on WhatsApp</a>
+<div class="hero">
+  <h2>Delicious. Traditional. Loved by Delhi.</h2>
+  <div class="buttons">
+    <a href="https://www.swiggy.com/" target="_blank">Order on Swiggy</a>
+    <a href="https://www.zomato.com/" target="_blank">Order on Zomato</a>
+    <a href="https://wa.me/919100765900" target="_blank">Order on WhatsApp</a>
+  </div>
 </div>
 
 <div class="section">
-  <h2>Why Choose Us?</h2>
-  <p>✔ Freshly Prepared</p>
-  <p>✔ Authentic Hyderabadi Taste</p>
-  <p>✔ Hygienic Cloud Kitchen</p>
-  <p>✔ Delivery Across Delhi</p>
+  <h2>Featured Dishes</h2>
+  <div class="photo-row">
+    <img src="food1.jpg" alt="Food Photo 1">
+    <img src="food2.jpg" alt="Food Photo 2">
+    <img src="food3.jpg" alt="Food Photo 3">
+    <img src="food4.jpg" alt="Food Photo 4">
+  </div>
 </div>
 
-<div class="footer">
-  📞 Contact: 9100765900 <br>
-  📍 Malka Ganj, Delhi – 110007
+<div class="section">
+  <h2>Our Menu Highlights</h2>
+  <p>Hot & Spicy Hyderabadi Biryani • Paneer Biryani • Mushroom Biryani • Chicken 65 • Mutton Fry • Curries • Desserts</p>
+  <a class="buttons" href="menu.html">See Full Menu</a>
 </div>
+
+<footer>
+  📍 1825-27, Ground Floor, Malka Ganj, Main Road, New Delhi – 110007 • 📞 9100765900
+</footer>
 
 </body>
 </html>
