@@ -1,37 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu | Maa Ruchi Foods</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {
-  margin:0;
   font-family: Arial, sans-serif;
-  background:#4E342E;
-  color:white;
-  text-align:center;
+  background:#fff5eb;
+  color:#3e2723;
+  margin:0;
 }
-
 .header {
+  background:#4e342e;
+  padding:18px;
+  text-align:center;
+  color:white;
+}
+.menu-section {
   padding:20px;
 }
-
-img {
-  width:95%;
-  max-width:800px;
+.menu-section h2 {
+  margin-bottom:8px;
+}
+.item {
+  margin-bottom:12px;
+}
+.photo-item {
+  width:100%;
+  max-width:400px;
+  margin:10px auto;
+  display:block;
   border-radius:10px;
 }
-
-.button {
+.back-button {
   display:inline-block;
-  background:#D4AF37;
-  color:black;
-  padding:12px 25px;
-  margin:20px;
+  background:#4e342e;
+  color:white;
+  padding:10px 16px;
   text-decoration:none;
   border-radius:6px;
+  margin:15px 0;
   font-weight:bold;
 }
 </style>
@@ -39,16 +48,48 @@ img {
 
 <body>
 
-<div class="header">
-  <h1>Our Menu</h1>
+<div class="header"><h1>Maa Ruchi Foods Menu</h1></div>
+
+<img src="menu.jpg" class="photo-item" alt="Full Menu Photo">
+
+<div class="menu-section">
+  <h2>Veg Starters</h2>
+  <div class="item">Paneer Fry (500ml) - 150/-</div>
+  <div class="item">Mushroom Fry (500ml) - 150/-</div>
+  <div class="item">Crispy Corn (500ml) - 200/-</div>
 </div>
 
-<img src="menu.jpg" alt="Maa Ruchi Foods Menu">
+<div class="menu-section">
+  <h2>Non-Veg Starters</h2>
+  <div class="item">Egg Chilli Dry - 120/-</div>
+  <div class="item">Chicken Ghee Roast - 180/-</div>
+  <div class="item">Mutton Pepper Fry (500ml) - 300/-</div>
+</div>
 
-<br>
+<div class="menu-section">
+  <h2>Biryani Varieties</h2>
+  <div class="item">Veg Biryani Regular - 149/-</div>
+  <div class="item">Paneer Biryani Family Pack - 259/-</div>
+  <div class="item">Mushroom Biryani Regular - 149/-</div>
+  <div class="item">Chicken Pepper Biryani - 199/-</div>
+  <div class="item">Mutton Biryani Family Pack - 449/-</div>
+</div>
 
-<a class="button" href="https://wa.me/919100765900">Order Now on WhatsApp</a>
-<a class="button" href="index.html">Back to Home</a>
+<div class="menu-section">
+  <h2>Breads & Curries</h2>
+  <div class="item">Tawa Roti Plain - 12/-</div>
+  <div class="item">Paneer Curry (500ml) - 150/-</div>
+  <div class="item">Mutton Curry (500ml) - 250/-</div>
+</div>
+
+<div class="menu-section">
+  <h2>Desserts</h2>
+  <div class="item">Bread Halwa (250ml) - 69/-</div>
+  <div class="item">Kaddu Ka Kheer (500ml) - 149/-</div>
+  <div class="item">Gulab Jamun (6 pcs) - 130/-</div>
+</div>
+
+<a class="back-button" href="index.html">⬅ Back to Home</a>
 
 </body>
 </html>
