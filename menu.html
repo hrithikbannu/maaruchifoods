@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu | Maa Ruchi Foods</title>
+<title>Royal Menu | Maa Ruchi Foods</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* -------- GLOBAL -------- */
+/* ---------- GLOBAL ---------- */
 
 body {
   margin:0;
-  background:#111;
+  background:#0c0c0c;
   color:white;
   font-family:'Poppins', sans-serif;
 }
 
-h1, h2 {
+h1,h2 {
   font-family:'Playfair Display', serif;
 }
 
@@ -28,7 +28,7 @@ h1, h2 {
   padding:120px 20px 80px;
 }
 
-/* -------- HEADER -------- */
+/* ---------- HEADER ---------- */
 
 .menu-header {
   text-align:center;
@@ -37,61 +37,112 @@ h1, h2 {
 
 .menu-header h1 {
   font-size:42px;
-  letter-spacing:4px;
+  letter-spacing:5px;
 }
 
 .menu-header p {
   color:#d4af37;
 }
 
-/* -------- SECTION -------- */
+/* ---------- FILTER BUTTONS ---------- */
+
+.filters {
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.filters button {
+  border:1px solid #d4af37;
+  background:none;
+  color:#d4af37;
+  padding:8px 20px;
+  margin:5px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.filters button:hover {
+  background:#d4af37;
+  color:black;
+}
+
+/* ---------- MENU SECTIONS ---------- */
 
 .menu-section {
-  margin-bottom:60px;
+  margin-bottom:50px;
+  border:1px solid rgba(212,175,55,0.15);
+  border-radius:8px;
+  overflow:hidden;
 }
 
-.menu-section h2 {
-  font-size:28px;
-  margin-bottom:15px;
-  position:relative;
+/* Category image banner */
+.category-banner {
+  height:180px;
+  background-size:cover;
+  background-position:center;
 }
 
-/* Gold divider */
-.menu-section h2::after {
-  content:"";
-  display:block;
-  width:60px;
-  height:2px;
-  background:#d4af37;
-  margin-top:10px;
+/* Section header (clickable) */
+.section-header {
+  background:#111;
+  padding:15px 20px;
+  cursor:pointer;
+  font-size:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-/* -------- MENU ITEMS -------- */
+.section-header:hover {
+  background:#1a1a1a;
+}
 
+.section-header span {
+  color:#d4af37;
+}
+
+/* Items container */
+.menu-items {
+  display:none;
+  padding:15px 20px;
+  background:#141414;
+}
+
+/* Menu item row */
 .menu-item {
   display:flex;
   justify-content:space-between;
-  border-bottom:1px solid rgba(255,255,255,0.08);
   padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
   transition:0.3s;
 }
 
 .menu-item:hover {
-  background:rgba(212,175,55,0.05);
   padding-left:10px;
+  background:rgba(212,175,55,0.05);
 }
 
-.item-name {
-  font-weight:400;
+/* Icons */
+.icon {
+  margin-right:8px;
 }
 
-.item-price {
+/* Price */
+.price {
   color:#d4af37;
-  font-weight:500;
 }
 
-/* -------- BACK BUTTON -------- */
+/* Chef Badge */
+.badge {
+  background:#d4af37;
+  color:black;
+  font-size:12px;
+  padding:2px 6px;
+  margin-left:10px;
+  border-radius:4px;
+}
 
+/* Back */
 .back {
   text-align:center;
   margin-top:60px;
@@ -102,7 +153,6 @@ h1, h2 {
   color:#d4af37;
   padding:10px 25px;
   text-decoration:none;
-  transition:0.3s;
 }
 
 .back a:hover {
@@ -119,67 +169,76 @@ h1, h2 {
 
 <div class="menu-header">
   <h1>MAA RUCHI FOODS</h1>
-  <p>Authentic Hyderabadi Dum Biryani</p>
+  <p>Royal Hyderabadi Menu</p>
 </div>
 
-<!-- Veg Starters -->
-<div class="menu-section">
-  <h2>Veg Starters</h2>
-  <div class="menu-item"><span class="item-name">Paneer Fry (500ml)</span><span class="item-price">₹150</span></div>
-  <div class="menu-item"><span class="item-name">Mushroom Fry (500ml)</span><span class="item-price">₹150</span></div>
-  <div class="menu-item"><span class="item-name">Crispy Corn (500ml)</span><span class="item-price">₹200</span></div>
+<!-- FILTER BUTTONS -->
+<div class="filters">
+  <button onclick="filterMenu('all')">All</button>
+  <button onclick="filterMenu('veg')">Veg 🌿</button>
+  <button onclick="filterMenu('nonveg')">Non-Veg 🍗</button>
 </div>
 
-<!-- Non Veg Starters -->
+<!-- VEG BIRYANI SECTION -->
 <div class="menu-section">
-  <h2>Non-Veg Starters</h2>
-  <div class="menu-item"><span class="item-name">Egg Chilli Dry (500ml)</span><span class="item-price">₹120</span></div>
-  <div class="menu-item"><span class="item-name">Chicken Fry (500ml)</span><span class="item-price">₹150</span></div>
-  <div class="menu-item"><span class="item-name">Chicken Ghee Roast</span><span class="item-price">₹180</span></div>
-  <div class="menu-item"><span class="item-name">Chicken 65</span><span class="item-price">₹190</span></div>
-  <div class="menu-item"><span class="item-name">Mutton Fry</span><span class="item-price">₹250</span></div>
+
+  <div class="category-banner" style="background-image:url('veg-biryani.jpg');"></div>
+
+  <div class="section-header" onclick="toggleSection(this)">
+    Veg Biryani 🌿
+    <span>+</span>
+  </div>
+
+  <div class="menu-items">
+    <div class="menu-item veg">
+      <div><span class="icon">🌿</span>Veg Biryani Regular <span class="badge">Chef Recommended</span></div>
+      <div class="price">₹149</div>
+    </div>
+    <div class="menu-item veg">
+      <div><span class="icon">🌿</span>Paneer Biryani</div>
+      <div class="price">₹199</div>
+    </div>
+  </div>
 </div>
 
-<!-- Veg Biryani -->
+<!-- CHICKEN SECTION -->
 <div class="menu-section">
-  <h2>Veg Biryani</h2>
-  <div class="menu-item"><span class="item-name">Student (650ml)</span><span class="item-price">₹109</span></div>
-  <div class="menu-item"><span class="item-name">Regular (1000ml)</span><span class="item-price">₹149</span></div>
-  <div class="menu-item"><span class="item-name">Family Pack (1500ml)</span><span class="item-price">₹199</span></div>
+
+  <div class="category-banner" style="background-image:url('chicken-biryani.jpg');"></div>
+
+  <div class="section-header" onclick="toggleSection(this)">
+    Chicken Biryani 🍗
+    <span>+</span>
+  </div>
+
+  <div class="menu-items">
+    <div class="menu-item nonveg">
+      <div><span class="icon">🍗</span>Chicken Biryani Regular <span class="badge">Most Popular</span></div>
+      <div class="price">₹189</div>
+    </div>
+    <div class="menu-item nonveg">
+      <div><span class="icon">🍗</span>Chicken Pepper Biryani</div>
+      <div class="price">₹199</div>
+    </div>
+  </div>
 </div>
 
-<!-- Chicken Biryani -->
+<!-- MUTTON SECTION -->
 <div class="menu-section">
-  <h2>Chicken Biryani</h2>
-  <div class="menu-item"><span class="item-name">Student (650ml)</span><span class="item-price">₹129</span></div>
-  <div class="menu-item"><span class="item-name">Regular (1000ml)</span><span class="item-price">₹189</span></div>
-  <div class="menu-item"><span class="item-name">Family (2000ml)</span><span class="item-price">₹349</span></div>
-  <div class="menu-item"><span class="item-name">Chicken Pepper Biryani</span><span class="item-price">₹199</span></div>
-</div>
 
-<!-- Mutton Biryani -->
-<div class="menu-section">
-  <h2>Mutton Biryani</h2>
-  <div class="menu-item"><span class="item-name">Student (650ml)</span><span class="item-price">₹169</span></div>
-  <div class="menu-item"><span class="item-name">Regular (1000ml)</span><span class="item-price">₹229</span></div>
-  <div class="menu-item"><span class="item-name">Family Pack (2000ml)</span><span class="item-price">₹449</span></div>
-</div>
+  <div class="category-banner" style="background-image:url('mutton-biryani.jpg');"></div>
 
-<!-- Curries -->
-<div class="menu-section">
-  <h2>Curries</h2>
-  <div class="menu-item"><span class="item-name">Paneer Curry (500ml)</span><span class="item-price">₹150</span></div>
-  <div class="menu-item"><span class="item-name">Egg Curry (500ml)</span><span class="item-price">₹120</span></div>
-  <div class="menu-item"><span class="item-name">Chicken Curry (Boneless)</span><span class="item-price">₹180</span></div>
-  <div class="menu-item"><span class="item-name">Mutton Curry</span><span class="item-price">₹250</span></div>
-</div>
+  <div class="section-header" onclick="toggleSection(this)">
+    Mutton Biryani 🥩
+    <span>+</span>
+  </div>
 
-<!-- Desserts -->
-<div class="menu-section">
-  <h2>Desserts</h2>
-  <div class="menu-item"><span class="item-name">Bread Halwa (250ml)</span><span class="item-price">₹69</span></div>
-  <div class="menu-item"><span class="item-name">Kaddu Ka Kheer (500ml)</span><span class="item-price">₹149</span></div>
-  <div class="menu-item"><span class="item-name">Gulab Jamun (6 pcs)</span><span class="item-price">₹130</span></div>
+  <div class="menu-items">
+    <div class="menu-item nonveg">
+      <div><span class="icon">🥩</span>Mutton Biryani Regular</div>
+      <div class="price">₹229</div>
+    </div>
+  </div>
 </div>
 
 <div class="back">
@@ -187,6 +246,37 @@ h1, h2 {
 </div>
 
 </div>
+
+<script>
+
+/* Expand / Collapse */
+function toggleSection(header){
+  const items = header.nextElementSibling;
+  const symbol = header.querySelector("span");
+  if(items.style.display === "block"){
+    items.style.display = "none";
+    symbol.textContent = "+";
+  } else {
+    items.style.display = "block";
+    symbol.textContent = "−";
+  }
+}
+
+/* Veg / Non-Veg Filter */
+function filterMenu(type){
+  const items = document.querySelectorAll('.menu-item');
+  items.forEach(item=>{
+    if(type === "all"){
+      item.style.display = "flex";
+    } else if(item.classList.contains(type)){
+      item.style.display = "flex";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+
+</script>
 
 </body>
 </html>
