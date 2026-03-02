@@ -46,35 +46,40 @@ nav a:hover {
 /* Hero Section with Parallax */
 .hero {
   height:100vh;
-  background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+  background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
              url('biryani.jpg') center/cover fixed no-repeat;
-  position:relative;
   display:flex;
-  align-items:center;
+  flex-direction:column;
   justify-content:center;
+  align-items:center;
   text-align:center;
 }
 
-/* Top Brand Name */
-.hero .brand {
-  position:absolute;
-  top:30px;
-  width:100%;
-  text-align:center;
+.hero h1 {
   font-family:'Playfair Display', serif;
-  font-size:28px;
-  font-weight:700;
-  letter-spacing:6px;
-  color:white;
+  font-size:18px;
+  letter-spacing:4px;
 }
 
-/* Center Title */
-.hero .tagline {
-  text-shadow: 0 0 20px rgba(0,0,0,0.7);
+.hero h2 {
   font-family:'Playfair Display', serif;
-  font-size:72px;
-  font-weight:500;
-  color:white;
+  font-size:64px;
+  margin:10px 0;
+}
+
+.buttons a {
+  display:inline-block;
+  margin:10px;
+  padding:12px 26px;
+  border:1px solid #d4af37;
+  color:#d4af37;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.buttons a:hover {
+  background:#d4af37;
+  color:black;
 }
 
 /* Sections */
@@ -141,15 +146,15 @@ footer {
 
 <!-- Hero -->
 <div class="hero" id="home">
+  <h1>MAA RUCHI FOODS</h1>
+  <h2>Taste of Tradition</h2>
 
-  <div class="brand">
-    MAA RUCHI FOODS
+  <div class="buttons">
+    <a href="menu.html">View Menu</a>
+    <a href="https://www.swiggy.com/" target="_blank">Swiggy</a>
+    <a href="https://www.zomato.com/" target="_blank">Zomato</a>
+    <a href="https://wa.me/919100765900" target="_blank">WhatsApp Order</a>
   </div>
-
-  <div class="tagline">
-    Taste of Tradition
-  </div>
-
 </div>
 
 <!-- Specialties -->
