@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maa Ruchi Foods | Taste of Tradition</title>
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* Smooth scroll */
+/* ---------------- GLOBAL STYLES ---------------- */
+
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Smooth scrolling between sections */
 }
 
 body {
@@ -21,12 +23,13 @@ body {
   color:white;
 }
 
-/* Sticky Navbar */
+/* ---------------- STICKY NAVBAR ---------------- */
+
 nav {
   position:fixed;
   width:100%;
   top:0;
-  background:rgba(0,0,0,0.85);
+  background:rgba(0,0,0,0.9);
   padding:15px 0;
   text-align:center;
   z-index:1000;
@@ -43,27 +46,40 @@ nav a:hover {
   color:white;
 }
 
-/* Hero Section with Parallax */
+/* ---------------- HERO SECTION ---------------- */
+
+/* Auto slideshow background */
 .hero {
   height:100vh;
-  background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-             url('biryani.jpg') center/cover fixed no-repeat;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
+  animation: heroSlide 18s infinite;
+  background-size:cover;
+  background-position:center;
+  position:relative;
 }
 
+/* Background slideshow images */
+@keyframes heroSlide {
+  0% { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('biryani1.jpg'); }
+  33% { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('biryani2.jpg'); }
+  66% { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('biryani3.jpg'); }
+  100% { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('biryani1.jpg'); }
+}
+
+/* Brand Name */
 .hero h1 {
   font-family:'Playfair Display', serif;
-  font-size:34px;        /* Bigger */
-  font-weight:700;       /* Bold */
+  font-size:38px;
+  font-weight:700;
   letter-spacing:6px;
-  margin-top:60px;       /* Push down from navbar */
-  margin-bottom:10px;
+  margin-top:60px;
 }
 
+/* Tagline */
 .hero h2 {
   font-family:'Playfair Display', serif;
   font-size:64px;
@@ -71,6 +87,7 @@ nav a:hover {
   margin:10px 0;
 }
 
+/* Buttons */
 .buttons a {
   display:inline-block;
   margin:10px;
@@ -86,26 +103,41 @@ nav a:hover {
   color:black;
 }
 
-/* Sections */
+/* ---------------- SECTION STYLING ---------------- */
+
 .section {
   padding:100px 20px;
   text-align:center;
-  opacity:0;
+  opacity:0; /* hidden before scroll */
   transform:translateY(40px);
   transition:1s ease;
 }
 
+/* When visible */
 .section.visible {
   opacity:1;
   transform:translateY(0);
 }
 
+/* Section Titles */
 .section h3 {
   font-family:'Playfair Display', serif;
   font-size:32px;
   margin-bottom:20px;
+  position:relative;
 }
 
+/* Animated gold divider line */
+.section h3::after {
+  content:"";
+  display:block;
+  width:80px;
+  height:2px;
+  margin:15px auto;
+  background:#d4af37;
+}
+
+/* Food & Instagram grid */
 .food-grid, .insta-grid {
   display:flex;
   justify-content:center;
@@ -126,7 +158,64 @@ nav a:hover {
   transform:scale(1.05);
 }
 
-/* Footer */
+/* ---------------- GOOGLE REVIEWS ---------------- */
+
+iframe {
+  border-radius:10px;
+  margin-top:20px;
+}
+
+/* ---------------- FLOATING WHATSAPP BUTTON ---------------- */
+
+.whatsapp-float {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  font-size:26px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  z-index:9999;
+  transition:0.3s;
+}
+
+.whatsapp-float:hover {
+  transform:scale(1.1);
+}
+
+/* ---------------- CATERING POPUP ---------------- */
+
+.popup {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.popup-content {
+  background:#111;
+  padding:30px;
+  border:1px solid #d4af37;
+  text-align:center;
+}
+
+.popup-content a {
+  color:#d4af37;
+  text-decoration:none;
+}
+
+/* ---------------- FOOTER ---------------- */
+
 footer {
   background:black;
   padding:50px 20px;
@@ -139,29 +228,30 @@ footer {
 
 <body>
 
-<!-- Sticky Nav -->
+<!-- Sticky Navigation -->
 <nav>
   <a href="#home">Home</a>
   <a href="#special">Specialties</a>
   <a href="#menu">Menu</a>
   <a href="#gallery">Gallery</a>
+  <a href="#reviews">Reviews</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- Hero -->
+<!-- HERO SECTION -->
 <div class="hero" id="home">
   <h1>MAA RUCHI FOODS</h1>
   <h2>Taste of Tradition</h2>
 
   <div class="buttons">
     <a href="menu.html">View Menu</a>
-    <a href="https://www.swiggy.com/" target="_blank">Swiggy</a>
-    <a href="https://www.zomato.com/" target="_blank">Zomato</a>
+    <a href="YOUR_SWIGGY_LINK" target="_blank">Swiggy</a>
+    <a href="YOUR_ZOMATO_LINK" target="_blank">Zomato</a>
     <a href="https://wa.me/919100765900" target="_blank">WhatsApp Order</a>
   </div>
 </div>
 
-<!-- Specialties -->
+<!-- SPECIALTIES -->
 <div class="section" id="special">
   <h3>Our Specialties</h3>
   <div class="food-grid">
@@ -171,16 +261,16 @@ footer {
   </div>
 </div>
 
-<!-- Menu Preview -->
+<!-- MENU PREVIEW -->
 <div class="section" id="menu">
   <h3>Authentic Hyderabadi Dum Biryani</h3>
-  <p>Slow-cooked with rich spices and premium ingredients. Experience true Hyderabad flavors in Delhi.</p>
+  <p>Slow-cooked with rich spices and premium ingredients.</p>
   <div class="buttons">
     <a href="menu.html">See Full Menu</a>
   </div>
 </div>
 
-<!-- Instagram Gallery -->
+<!-- INSTAGRAM -->
 <div class="section" id="gallery">
   <h3>Instagram Gallery</h3>
   <div class="insta-grid">
@@ -190,7 +280,16 @@ footer {
   </div>
 </div>
 
-<!-- Contact -->
+<!-- GOOGLE REVIEWS -->
+<div class="section" id="reviews">
+  <h3>Customer Reviews</h3>
+  <iframe 
+    src="https://www.google.com/maps?q=Maa+Ruchi+Foods+Delhi&output=embed"
+    width="100%" height="350">
+  </iframe>
+</div>
+
+<!-- CONTACT -->
 <div class="section" id="contact">
   <h3>Contact Us</h3>
   <p>📍 Malka Ganj, Delhi – 110007</p>
@@ -201,22 +300,41 @@ footer {
   © 2026 Maa Ruchi Foods • Cloud Kitchen Delhi
 </footer>
 
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919100765900" class="whatsapp-float" target="_blank">💬</a>
+
+<!-- CATERING POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3>Catering & Bulk Orders</h3>
+    <p>Planning an event? Let us handle the food!</p>
+    <a href="https://wa.me/919100765900" target="_blank">Contact on WhatsApp</a>
+    <br><br>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
 <script>
 
-/* Scroll animation */
+/* Scroll reveal animation */
 const sections = document.querySelectorAll('.section');
-
 window.addEventListener('scroll', () => {
   const triggerBottom = window.innerHeight * 0.85;
-
   sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-
-    if(sectionTop < triggerBottom) {
+    if(section.getBoundingClientRect().top < triggerBottom) {
       section.classList.add('visible');
     }
   });
 });
+
+/* Catering popup after 5 seconds */
+setTimeout(() => {
+  document.getElementById("popup").style.display = "flex";
+}, 5000);
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
 
 </script>
 
