@@ -2,103 +2,219 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Maa Ruchi Foods | Delhi Cloud Kitchen</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maa Ruchi Foods | Taste of Tradition</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin:0;
-  font-family: Arial, sans-serif;
-  background:#fff5eb;
-  color:#3e2723;
+  font-family:'Poppins', sans-serif;
+  background:#111;
+  color:white;
 }
-header {
-  background:#4e342e;
-  color:#fff;
-  padding:20px;
+
+/* Sticky Navbar */
+nav {
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(0,0,0,0.85);
+  padding:15px 0;
   text-align:center;
+  z-index:1000;
 }
-.logo {
-  width:100px;
-  border-radius:50%;
-  margin-bottom:10px;
+
+nav a {
+  color:#d4af37;
+  margin:0 20px;
+  text-decoration:none;
+  font-weight:500;
 }
+
+nav a:hover {
+  color:white;
+}
+
+/* Hero Section with Parallax */
 .hero {
-  background:#d4af37;
-  color:#3e2723;
-  padding:25px;
+  height:100vh;
+  background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+             url('biryani.jpg') center/cover fixed no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
 }
+
+.hero h1 {
+  font-family:'Playfair Display', serif;
+  font-size:18px;
+  letter-spacing:4px;
+}
+
+.hero h2 {
+  font-family:'Playfair Display', serif;
+  font-size:64px;
+  margin:10px 0;
+}
+
 .buttons a {
   display:inline-block;
-  background:#4e342e;
-  color:white;
-  padding:12px 22px;
   margin:10px;
+  padding:12px 26px;
+  border:1px solid #d4af37;
+  color:#d4af37;
   text-decoration:none;
-  border-radius:6px;
-  font-weight:bold;
+  transition:0.3s;
 }
+
+.buttons a:hover {
+  background:#d4af37;
+  color:black;
+}
+
+/* Sections */
 .section {
-  padding:35px 20px;
+  padding:100px 20px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
 }
-.photo-row {
+
+.section.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.section h3 {
+  font-family:'Playfair Display', serif;
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.food-grid, .insta-grid {
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  gap:15px;
+  gap:20px;
 }
-.photo-row img {
-  width:280px;
-  height:180px;
-  object-fit:cover;
-  border-radius:12px;
-}
-footer {
-  background:#3e2723;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
-</style>
 
+.food-grid img, .insta-grid img {
+  width:300px;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.food-grid img:hover,
+.insta-grid img:hover {
+  transform:scale(1.05);
+}
+
+/* Footer */
+footer {
+  background:black;
+  padding:50px 20px;
+  text-align:center;
+  color:#aaa;
+}
+
+</style>
 </head>
+
 <body>
 
-<header>
-  <img src="logo.png" class="logo" alt="Maa Ruchi Foods Logo">
-  <h1>Maa Ruchi Foods</h1>
-  <p>Authentic Hyderabadi Dum Biryani • Cloud Kitchen Delhi</p>
-</header>
+<!-- Sticky Nav -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#special">Specialties</a>
+  <a href="#menu">Menu</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-<div class="hero">
-  <h2>Delicious. Traditional. Loved by Delhi.</h2>
+<!-- Hero -->
+<div class="hero" id="home">
+  <h1>MAA RUCHI FOODS</h1>
+  <h2>Taste of Tradition</h2>
+
   <div class="buttons">
-    <a href="https://www.swiggy.com/" target="_blank">Order on Swiggy</a>
-    <a href="https://www.zomato.com/" target="_blank">Order on Zomato</a>
-    <a href="https://wa.me/919100765900" target="_blank">Order on WhatsApp</a>
+    <a href="menu.html">View Menu</a>
+    <a href="https://www.swiggy.com/" target="_blank">Swiggy</a>
+    <a href="https://www.zomato.com/" target="_blank">Zomato</a>
+    <a href="https://wa.me/919100765900" target="_blank">WhatsApp Order</a>
   </div>
 </div>
 
-<div class="section">
-  <h2>Featured Dishes</h2>
-  <div class="photo-row">
-    <img src="food1.jpg" alt="Food Photo 1">
-    <img src="food2.jpg" alt="Food Photo 2">
-    <img src="food3.jpg" alt="Food Photo 3">
-    <img src="food4.jpg" alt="Food Photo 4">
+<!-- Specialties -->
+<div class="section" id="special">
+  <h3>Our Specialties</h3>
+  <div class="food-grid">
+    <img src="food1.jpg">
+    <img src="food2.jpg">
+    <img src="food3.jpg">
   </div>
 </div>
 
-<div class="section">
-  <h2>Our Menu Highlights</h2>
-  <p>Hot & Spicy Hyderabadi Biryani • Paneer Biryani • Mushroom Biryani • Chicken 65 • Mutton Fry • Curries • Desserts</p>
-  <a class="buttons" href="menu.html">See Full Menu</a>
+<!-- Menu Preview -->
+<div class="section" id="menu">
+  <h3>Authentic Hyderabadi Dum Biryani</h3>
+  <p>Slow-cooked with rich spices and premium ingredients. Experience true Hyderabad flavors in Delhi.</p>
+  <div class="buttons">
+    <a href="menu.html">See Full Menu</a>
+  </div>
+</div>
+
+<!-- Instagram Gallery -->
+<div class="section" id="gallery">
+  <h3>Instagram Gallery</h3>
+  <div class="insta-grid">
+    <img src="food4.jpg">
+    <img src="food5.jpg">
+    <img src="food6.jpg">
+  </div>
+</div>
+
+<!-- Contact -->
+<div class="section" id="contact">
+  <h3>Contact Us</h3>
+  <p>📍 Malka Ganj, Delhi – 110007</p>
+  <p>📞 9100765900</p>
 </div>
 
 <footer>
-  📍 1825-27, Ground Floor, Malka Ganj, Main Road, New Delhi – 110007 • 📞 9100765900
+  © 2026 Maa Ruchi Foods • Cloud Kitchen Delhi
 </footer>
+
+<script>
+
+/* Scroll animation */
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if(sectionTop < triggerBottom) {
+      section.classList.add('visible');
+    }
+  });
+});
+
+</script>
 
 </body>
 </html>
