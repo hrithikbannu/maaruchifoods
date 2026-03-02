@@ -48,7 +48,7 @@ h1,h2 {
 
 .filters {
   text-align:center;
-  margin-bottom:40px;
+  margin-bottom:50px;
 }
 
 .filters button {
@@ -66,53 +66,44 @@ h1,h2 {
   color:black;
 }
 
-/* ---------- MENU SECTIONS ---------- */
+/* ---------- CATEGORY SECTION ---------- */
 
 .menu-section {
-  margin-bottom:50px;
-  border:1px solid rgba(212,175,55,0.15);
-  border-radius:8px;
-  overflow:hidden;
+  margin-bottom:70px;
 }
 
 /* Category image banner */
 .category-banner {
-  height:180px;
+  height:220px;
   background-size:cover;
   background-position:center;
+  border-radius:10px;
+  margin-bottom:20px;
 }
 
-/* Section header (clickable) */
-.section-header {
-  background:#111;
-  padding:15px 20px;
-  cursor:pointer;
-  font-size:22px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+/* Section title */
+.menu-section h2 {
+  font-size:28px;
+  margin-bottom:20px;
+  position:relative;
 }
 
-.section-header:hover {
-  background:#1a1a1a;
+/* Gold underline */
+.menu-section h2::after {
+  content:"";
+  display:block;
+  width:80px;
+  height:2px;
+  background:#d4af37;
+  margin-top:10px;
 }
 
-.section-header span {
-  color:#d4af37;
-}
+/* ---------- MENU ITEMS ---------- */
 
-/* Items container */
-.menu-items {
-  display:none;
-  padding:15px 20px;
-  background:#141414;
-}
-
-/* Menu item row */
 .menu-item {
   display:flex;
   justify-content:space-between;
-  padding:10px 0;
+  padding:12px 0;
   border-bottom:1px solid rgba(255,255,255,0.08);
   transition:0.3s;
 }
@@ -122,14 +113,13 @@ h1,h2 {
   background:rgba(212,175,55,0.05);
 }
 
-/* Icons */
 .icon {
   margin-right:8px;
 }
 
-/* Price */
 .price {
   color:#d4af37;
+  font-weight:500;
 }
 
 /* Chef Badge */
@@ -145,7 +135,7 @@ h1,h2 {
 /* Back */
 .back {
   text-align:center;
-  margin-top:60px;
+  margin-top:80px;
 }
 
 .back a {
@@ -153,6 +143,7 @@ h1,h2 {
   color:#d4af37;
   padding:10px 25px;
   text-decoration:none;
+  transition:0.3s;
 }
 
 .back a:hover {
@@ -179,65 +170,46 @@ h1,h2 {
   <button onclick="filterMenu('nonveg')">Non-Veg 🍗</button>
 </div>
 
-<!-- VEG BIRYANI SECTION -->
+<!-- VEG BIRYANI -->
 <div class="menu-section">
-
   <div class="category-banner" style="background-image:url('veg-biryani.jpg');"></div>
+  <h2>Veg Biryani 🌿</h2>
 
-  <div class="section-header" onclick="toggleSection(this)">
-    Veg Biryani 🌿
-    <span>+</span>
+  <div class="menu-item veg">
+    <div><span class="icon">🌿</span>Veg Biryani Regular <span class="badge">Chef Recommended</span></div>
+    <div class="price">₹149</div>
   </div>
 
-  <div class="menu-items">
-    <div class="menu-item veg">
-      <div><span class="icon">🌿</span>Veg Biryani Regular <span class="badge">Chef Recommended</span></div>
-      <div class="price">₹149</div>
-    </div>
-    <div class="menu-item veg">
-      <div><span class="icon">🌿</span>Paneer Biryani</div>
-      <div class="price">₹199</div>
-    </div>
+  <div class="menu-item veg">
+    <div><span class="icon">🌿</span>Paneer Biryani</div>
+    <div class="price">₹199</div>
   </div>
 </div>
 
-<!-- CHICKEN SECTION -->
+<!-- CHICKEN -->
 <div class="menu-section">
-
   <div class="category-banner" style="background-image:url('chicken-biryani.jpg');"></div>
+  <h2>Chicken Biryani 🍗</h2>
 
-  <div class="section-header" onclick="toggleSection(this)">
-    Chicken Biryani 🍗
-    <span>+</span>
+  <div class="menu-item nonveg">
+    <div><span class="icon">🍗</span>Chicken Biryani Regular <span class="badge">Most Popular</span></div>
+    <div class="price">₹189</div>
   </div>
 
-  <div class="menu-items">
-    <div class="menu-item nonveg">
-      <div><span class="icon">🍗</span>Chicken Biryani Regular <span class="badge">Most Popular</span></div>
-      <div class="price">₹189</div>
-    </div>
-    <div class="menu-item nonveg">
-      <div><span class="icon">🍗</span>Chicken Pepper Biryani</div>
-      <div class="price">₹199</div>
-    </div>
+  <div class="menu-item nonveg">
+    <div><span class="icon">🍗</span>Chicken Pepper Biryani</div>
+    <div class="price">₹199</div>
   </div>
 </div>
 
-<!-- MUTTON SECTION -->
+<!-- MUTTON -->
 <div class="menu-section">
-
   <div class="category-banner" style="background-image:url('mutton-biryani.jpg');"></div>
+  <h2>Mutton Biryani 🥩</h2>
 
-  <div class="section-header" onclick="toggleSection(this)">
-    Mutton Biryani 🥩
-    <span>+</span>
-  </div>
-
-  <div class="menu-items">
-    <div class="menu-item nonveg">
-      <div><span class="icon">🥩</span>Mutton Biryani Regular</div>
-      <div class="price">₹229</div>
-    </div>
+  <div class="menu-item nonveg">
+    <div><span class="icon">🥩</span>Mutton Biryani Regular</div>
+    <div class="price">₹229</div>
   </div>
 </div>
 
@@ -248,19 +220,6 @@ h1,h2 {
 </div>
 
 <script>
-
-/* Expand / Collapse */
-function toggleSection(header){
-  const items = header.nextElementSibling;
-  const symbol = header.querySelector("span");
-  if(items.style.display === "block"){
-    items.style.display = "none";
-    symbol.textContent = "+";
-  } else {
-    items.style.display = "block";
-    symbol.textContent = "−";
-  }
-}
 
 /* Veg / Non-Veg Filter */
 function filterMenu(type){
