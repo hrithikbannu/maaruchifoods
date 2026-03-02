@@ -10,10 +10,12 @@
 
 <style>
 
-/* ---------------- GLOBAL STYLES ---------------- */
+/* =========================================================
+   GLOBAL SETTINGS
+========================================================= */
 
 html {
-  scroll-behavior: smooth; /* Smooth scrolling between sections */
+  scroll-behavior: smooth; /* Smooth scroll between sections */
 }
 
 body {
@@ -23,16 +25,18 @@ body {
   color:white;
 }
 
-/* ---------------- STICKY NAVBAR ---------------- */
+/* =========================================================
+   STICKY NAVIGATION BAR
+========================================================= */
 
 nav {
-  position:fixed;
+  position:fixed;        /* Always stays at top */
   width:100%;
   top:0;
   background:rgba(0,0,0,0.9);
   padding:15px 0;
   text-align:center;
-  z-index:1000;
+  z-index:1000;          /* Always above everything */
 }
 
 nav a {
@@ -40,54 +44,96 @@ nav a {
   margin:0 20px;
   text-decoration:none;
   font-weight:500;
+  transition:0.3s;
 }
 
 nav a:hover {
   color:white;
 }
 
-/* ---------------- HERO SECTION ---------------- */
+/* =========================================================
+   HERO SECTION (CINEMATIC SLIDESHOW)
+========================================================= */
 
-/* Auto slideshow background */
 .hero {
+  position:relative;
   height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  animation: heroSlide 18s infinite;
+  overflow:hidden; /* Prevents zoom overflow */
+}
+
+/* ---------- Background Slideshow Layer ---------- */
+/* This runs independently behind the content */
+
+.hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
   background-size:cover;
   background-position:center;
-  position:relative;
+  animation:
+    heroSlide 18s linear infinite,   /* Image loop */
+    slowZoom 18s linear infinite;    /* Cinematic zoom */
 }
 
-/* Background slideshow images */
+/* ---------- Dark Overlay for Readability ---------- */
+
+.hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.65); /* Ensures text readable */
+  z-index:-1;
+}
+
+/* ---------- Infinite Image Loop ---------- */
+/* Loops forever smoothly */
+
 @keyframes heroSlide {
-  0% { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('biryani1.jpg'); }
-  33% { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('biryani2.jpg'); }
-  66% { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('biryani3.jpg'); }
-  100% { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('biryani1.jpg'); }
+  0%,30%   { background-image:url('biryani1.jpg'); }
+  33%,63%  { background-image:url('biryani2.jpg'); }
+  66%,96%  { background-image:url('biryani3.jpg'); }
+  100%     { background-image:url('biryani1.jpg'); }
 }
 
-/* Brand Name */
+/* ---------- Slow Zoom Effect ---------- */
+/* Gives Netflix-style cinematic feel */
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
 .hero h1 {
   font-family:'Playfair Display', serif;
   font-size:38px;
   font-weight:700;
   letter-spacing:6px;
   margin-top:60px;
+  text-shadow:0 0 15px rgba(0,0,0,0.9);
 }
 
-/* Tagline */
 .hero h2 {
   font-family:'Playfair Display', serif;
   font-size:64px;
   font-weight:500;
   margin:10px 0;
+  text-shadow:0 0 20px rgba(0,0,0,0.9);
 }
 
-/* Buttons */
+/* =========================================================
+   BUTTONS
+========================================================= */
+
 .buttons a {
   display:inline-block;
   margin:10px;
@@ -103,23 +149,25 @@ nav a:hover {
   color:black;
 }
 
-/* ---------------- SECTION STYLING ---------------- */
+/* =========================================================
+   SECTION STYLING (Scroll Animation)
+========================================================= */
 
 .section {
   padding:100px 20px;
   text-align:center;
-  opacity:0; /* hidden before scroll */
+  opacity:0;
   transform:translateY(40px);
   transition:1s ease;
 }
 
-/* When visible */
 .section.visible {
   opacity:1;
   transform:translateY(0);
 }
 
 /* Section Titles */
+
 .section h3 {
   font-family:'Playfair Display', serif;
   font-size:32px;
@@ -127,7 +175,8 @@ nav a:hover {
   position:relative;
 }
 
-/* Animated gold divider line */
+/* Gold Divider */
+
 .section h3::after {
   content:"";
   display:block;
@@ -137,7 +186,10 @@ nav a:hover {
   background:#d4af37;
 }
 
-/* Food & Instagram grid */
+/* =========================================================
+   FOOD + INSTAGRAM GRID
+========================================================= */
+
 .food-grid, .insta-grid {
   display:flex;
   justify-content:center;
@@ -158,14 +210,18 @@ nav a:hover {
   transform:scale(1.05);
 }
 
-/* ---------------- GOOGLE REVIEWS ---------------- */
+/* =========================================================
+   GOOGLE REVIEWS
+========================================================= */
 
 iframe {
   border-radius:10px;
   margin-top:20px;
 }
 
-/* ---------------- FLOATING WHATSAPP BUTTON ---------------- */
+/* =========================================================
+   FLOATING WHATSAPP BUTTON
+========================================================= */
 
 .whatsapp-float {
   position:fixed;
@@ -190,7 +246,9 @@ iframe {
   transform:scale(1.1);
 }
 
-/* ---------------- CATERING POPUP ---------------- */
+/* =========================================================
+   CATERING POPUP
+========================================================= */
 
 .popup {
   display:none;
@@ -214,7 +272,9 @@ iframe {
   text-decoration:none;
 }
 
-/* ---------------- FOOTER ---------------- */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
   background:black;
@@ -228,7 +288,8 @@ footer {
 
 <body>
 
-<!-- Sticky Navigation -->
+<!-- ================= NAVIGATION ================= -->
+
 <nav>
   <a href="#home">Home</a>
   <a href="#special">Specialties</a>
@@ -238,7 +299,8 @@ footer {
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO SECTION -->
+<!-- ================= HERO ================= -->
+
 <div class="hero" id="home">
   <h1>MAA RUCHI FOODS</h1>
   <h2>Taste of Tradition</h2>
@@ -251,7 +313,8 @@ footer {
   </div>
 </div>
 
-<!-- SPECIALTIES -->
+<!-- ================= SECTIONS ================= -->
+
 <div class="section" id="special">
   <h3>Our Specialties</h3>
   <div class="food-grid">
@@ -261,7 +324,6 @@ footer {
   </div>
 </div>
 
-<!-- MENU PREVIEW -->
 <div class="section" id="menu">
   <h3>Authentic Hyderabadi Dum Biryani</h3>
   <p>Slow-cooked with rich spices and premium ingredients.</p>
@@ -270,7 +332,6 @@ footer {
   </div>
 </div>
 
-<!-- INSTAGRAM -->
 <div class="section" id="gallery">
   <h3>Instagram Gallery</h3>
   <div class="insta-grid">
@@ -280,7 +341,6 @@ footer {
   </div>
 </div>
 
-<!-- GOOGLE REVIEWS -->
 <div class="section" id="reviews">
   <h3>Customer Reviews</h3>
   <iframe 
@@ -289,7 +349,6 @@ footer {
   </iframe>
 </div>
 
-<!-- CONTACT -->
 <div class="section" id="contact">
   <h3>Contact Us</h3>
   <p>📍 Malka Ganj, Delhi – 110007</p>
@@ -300,10 +359,10 @@ footer {
   © 2026 Maa Ruchi Foods • Cloud Kitchen Delhi
 </footer>
 
-<!-- FLOATING WHATSAPP -->
+<!-- Floating WhatsApp -->
 <a href="https://wa.me/919100765900" class="whatsapp-float" target="_blank">💬</a>
 
-<!-- CATERING POPUP -->
+<!-- Catering Popup -->
 <div id="popup" class="popup">
   <div class="popup-content">
     <h3>Catering & Bulk Orders</h3>
@@ -316,7 +375,7 @@ footer {
 
 <script>
 
-/* Scroll reveal animation */
+/* Scroll Reveal */
 const sections = document.querySelectorAll('.section');
 window.addEventListener('scroll', () => {
   const triggerBottom = window.innerHeight * 0.85;
@@ -327,7 +386,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
-/* Catering popup after 5 seconds */
+/* Catering Popup */
 setTimeout(() => {
   document.getElementById("popup").style.display = "flex";
 }, 5000);
