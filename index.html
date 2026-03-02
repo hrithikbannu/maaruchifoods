@@ -9,12 +9,20 @@
 
 <style>
 
-/* ===== GLOBAL ===== */
-html { scroll-behavior:smooth; }
-body { margin:0; font-family:'Poppins', sans-serif; background:#111; color:white; }
+/* ---------------- GLOBAL ---------------- */
 
-/* ===== NAVBAR ===== */
-nav{
+html { scroll-behavior: smooth; }
+
+body {
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:#111;
+  color:white;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+nav {
   position:fixed;
   width:100%;
   top:0;
@@ -23,16 +31,20 @@ nav{
   text-align:center;
   z-index:1000;
 }
-nav a{
+
+nav a {
   color:#d4af37;
   margin:0 20px;
   text-decoration:none;
   font-weight:500;
+  transition:0.3s;
 }
-nav a:hover{ color:white; }
 
-/* ===== CINEMATIC HERO ===== */
-.hero{
+nav a:hover { color:white; }
+
+/* ---------------- CINEMATIC HERO ---------------- */
+
+.hero {
   position:relative;
   height:100vh;
   display:flex;
@@ -43,8 +55,8 @@ nav a:hover{ color:white; }
   overflow:hidden;
 }
 
-/* Slides */
-.hero-slide{
+/* Background slides */
+.hero-slide {
   position:absolute;
   inset:0;
   background-size:cover;
@@ -55,21 +67,21 @@ nav a:hover{ color:white; }
 }
 
 /* Individual slides */
-.slide1{ background-image:url('biryani1.jpg'); animation-delay:0s; }
-.slide2{ background-image:url('biryani2.jpg'); animation-delay:10s; }
-.slide3{ background-image:url('biryani3.jpg'); animation-delay:20s; }
+.slide1 { background-image:url('biryani1.jpg'); animation-delay:0s; }
+.slide2 { background-image:url('biryani2.jpg'); animation-delay:10s; }
+.slide3 { background-image:url('biryani3.jpg'); animation-delay:20s; }
 
-/* Fade + Zoom */
-@keyframes fadeZoom{
-  0%{opacity:0; transform:scale(1);}
-  5%{opacity:1;}
-  30%{opacity:1; transform:scale(1.08);}
-  35%{opacity:0;}
-  100%{opacity:0;}
+/* Smooth fade + zoom */
+@keyframes fadeZoom {
+  0%   { opacity:0; transform:scale(1); }
+  5%   { opacity:1; }
+  30%  { opacity:1; transform:scale(1.08); }
+  35%  { opacity:0; }
+  100% { opacity:0; }
 }
 
 /* Overlay */
-.hero::after{
+.hero::after {
   content:"";
   position:absolute;
   inset:0;
@@ -77,29 +89,28 @@ nav a:hover{ color:white; }
   z-index:1;
 }
 
-/* Hero Text */
+/* Hero text */
 .hero h1,
 .hero h2,
-.hero .buttons{
+.hero .buttons {
   position:relative;
   z-index:2;
 }
 
-.hero h1{
+.hero h1 {
   font-family:'Playfair Display', serif;
   font-size:38px;
   letter-spacing:6px;
-  text-shadow:0 0 20px rgba(0,0,0,0.9);
 }
-.hero h2{
+
+.hero h2 {
   font-family:'Playfair Display', serif;
   font-size:64px;
   margin:10px 0;
-  text-shadow:0 0 25px rgba(0,0,0,0.9);
 }
 
 /* Buttons */
-.buttons a{
+.buttons a {
   display:inline-block;
   margin:10px;
   padding:12px 26px;
@@ -108,28 +119,33 @@ nav a:hover{ color:white; }
   text-decoration:none;
   transition:0.3s;
 }
-.buttons a:hover{
+
+.buttons a:hover {
   background:#d4af37;
   color:black;
 }
 
-/* ===== SECTIONS ===== */
-.section{
+/* ---------------- SECTIONS ---------------- */
+
+.section {
   padding:100px 20px;
   text-align:center;
   opacity:0;
   transform:translateY(40px);
   transition:1s ease;
 }
-.section.visible{
+
+.section.visible {
   opacity:1;
   transform:translateY(0);
 }
-.section h3{
+
+.section h3 {
   font-family:'Playfair Display', serif;
   font-size:32px;
 }
-.section h3::after{
+
+.section h3::after {
   content:"";
   display:block;
   width:80px;
@@ -138,28 +154,68 @@ nav a:hover{ color:white; }
   background:#d4af37;
 }
 
-/* Grid */
-.food-grid,.insta-grid{
+/* Grids */
+.food-grid, .insta-grid {
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
   gap:20px;
 }
-.food-grid img,.insta-grid img{
+
+.food-grid img, .insta-grid img {
   width:300px;
   height:200px;
   object-fit:cover;
   border-radius:10px;
   transition:0.3s;
 }
+
 .food-grid img:hover,
-.insta-grid img:hover{
+.insta-grid img:hover {
   transform:scale(1.05);
 }
 
-footer{
+/* WhatsApp */
+.whatsapp-float {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  font-size:26px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  z-index:9999;
+}
+
+/* Popup */
+.popup {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.popup-content {
+  background:#111;
+  padding:30px;
+  border:1px solid #d4af37;
+  text-align:center;
+}
+
+/* Footer */
+footer {
   background:black;
-  padding:50px;
+  padding:50px 20px;
   text-align:center;
   color:#aaa;
 }
@@ -188,16 +244,59 @@ footer{
 
   <div class="buttons">
     <a href="menu.html">View Menu</a>
+    <a href="YOUR_SWIGGY_LINK" target="_blank">Swiggy</a>
+    <a href="YOUR_ZOMATO_LINK" target="_blank">Zomato</a>
+    <a href="https://wa.me/919100765900" target="_blank">WhatsApp Order</a>
   </div>
 </div>
 
+<!-- KEEPING ALL YOUR SECTIONS EXACTLY AS BEFORE -->
+
 <div class="section" id="special">
   <h3>Our Specialties</h3>
+  <div class="food-grid">
+    <img src="food1.jpg">
+    <img src="food2.jpg">
+    <img src="food3.jpg">
+  </div>
+</div>
+
+<div class="section" id="menu">
+  <h3>Authentic Hyderabadi Dum Biryani</h3>
+  <p>Slow-cooked with rich spices and premium ingredients.</p>
+  <div class="buttons">
+    <a href="menu.html">See Full Menu</a>
+  </div>
+</div>
+
+<div class="section" id="gallery">
+  <h3>Instagram Gallery</h3>
+  <div class="insta-grid">
+    <img src="food4.jpg">
+    <img src="food5.jpg">
+    <img src="food6.jpg">
+  </div>
+</div>
+
+<div class="section" id="reviews">
+  <h3>Customer Reviews</h3>
+  <iframe 
+    src="https://www.google.com/maps?q=Maa+Ruchi+Foods+Delhi&output=embed"
+    width="100%" height="350">
+  </iframe>
+</div>
+
+<div class="section" id="contact">
+  <h3>Contact Us</h3>
+  <p>📍 Malka Ganj, Delhi – 110007</p>
+  <p>📞 9100765900</p>
 </div>
 
 <footer>
-© 2026 Maa Ruchi Foods
+© 2026 Maa Ruchi Foods • Cloud Kitchen Delhi
 </footer>
+
+<a href="https://wa.me/919100765900" class="whatsapp-float" target="_blank">💬</a>
 
 <script>
 const sections=document.querySelectorAll('.section');
